@@ -1,8 +1,10 @@
 # Penang Weather Report WIP
 
 ## Background Overview
-*Dataset* : Obtained from Phyton's open source library - 'Meteostat'
+*Dataset* : Phyton's open source library - 'Meteostat'
+
 *Records* : 5,840 raw rows
+
 *Scope* : Temperature ranges(minimun|maximum|average), precipitation and wind speed
 
 | Table of contents|
@@ -11,13 +13,14 @@
 |2. [Data Preparation](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#data-preparations)|        
 |3. [Analytical Questions](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#analytical-questions)|  
 |4. [Key Findings](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#key-findings)|
-|5. [Testing out the Weather Forecast](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#testing-out)|     
+|5. [Creating and Testing out the Weather Forecast](https://github.com/leemings98-source/Penang-Weather-Report/edit/main/README.md#creating-and-testing-out-the-weather-forecasttesting-out-the-weather-forecast)|     
 |6. [Data Limitations](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#data-limitations)|     
 
 ## Project Overview
 
 ### Objective
-- Identify months where temperatures are highest
+
+- Identify months where temperatures are highest.
 - Have temperatures been increasing as the years goes by?
 - Which months have the most rainfall?
 - Have rainfall increased/decrease over the years?
@@ -40,13 +43,53 @@ The base dataset is composed of one table, 11 columns, and 5840 rows of data. Th
 |pres | Sea level air pressure | float |
 |tsun | Total sunshine duration | float |
 
+## Data Preperation
+### Data Collection
 
-## Data Preparations
+                              from meteostat import Point, Daily,Station
+                              from datetime import datetime
+                              Penang  = Point(5.3000, 100.2667)
+                              start   = datetime(2010,1,1)
+                              end     = datetime(2025,12,31)
+                              
+                              data = Daily(Penang, start,end)
+                              data = data.fetch()
+                              data.head()
 
+saving the file as a base file                         
+
+                              data.to_csv("Penang_15year_weather_info.csv")
+                              base_data = pd.read.csv(r"C:\file directory\Penang_15year_weather_info.csv")
+### Data Cleaning
+During the initial lookover of the dataset, no duplicates were found instead removal of several columns were needed
+
+                            base_data.drop(columns = ["snow","wdir","wpgt","tsun","pres"],inplace = True )
+
+Columns Snow, wdir, wpgt and tsun was found to have no information recorded in their rows. While pres was not needed in this particular project   
+
+                            base_data.interpolate(limit = 3, inplace =True)
+year
+
+                            Monthly = base_data.resample('ME').mean()
+                            Yearly = base_data.resample('YE').mean()
+ 
 ## Analytical Questions
+- Identify months where temperatures are highest.
+  
+<img width="740" height="398" alt="{309E25B6-8846-48A8-BAC0-1EE870D520EB}" src="https://github.com/user-attachments/assets/05d522a0-6e80-4bfc-9f8c-b199a15c2a29" />
+
+- Have temperatures been increasing as the years goes by?
+
+<img width="758" height="304" alt="{56C2721A-5816-44E2-A7D2-29FD44500342}" src="https://github.com/user-attachments/assets/9c42c65a-d31a-4ca7-bf02-e06db8a2cd8c" />
+
+- Which months have the most rainfall?
+ 
+<img width="784" height="358" alt="{050F9FFB-8C1A-4309-9E04-9107DB4D92C0}" src="https://github.com/user-attachments/assets/624efeb9-5099-40bb-a5d8-dbb629cd8be5" />
+
+- Have rainfall increased/decrease over the years?
 
 ## Key Findings
 
-## Testing out the Weather Forecast 
+## Creating and Testing out the Weather ForecastTesting out the Weather Forecast 
 
 ## Data Limitations
