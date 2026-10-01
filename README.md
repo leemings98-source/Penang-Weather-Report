@@ -46,6 +46,8 @@ The base dataset is composed of one table, 11 columns, and 5840 rows of data. Th
 ## Data Preperation
 ### Data Collection
 
+The data for this project is obtained from Phyton's own open source library - 'Meteostat'. It retrieves historical observations and statistics from Meteostat Datasets, which aggregates information from various public sources primarily governmental agencies.
+
                               from meteostat import Point, Daily,Station
                               from datetime import datetime
                               Penang  = Point(5.3000, 100.2667)
@@ -55,23 +57,29 @@ The base dataset is composed of one table, 11 columns, and 5840 rows of data. Th
                               data = Daily(Penang, start,end)
                               data = data.fetch()
                               data.head()
+                              
+In this instance, the GPS points for Penang was necessary as Meteostat was unable to zero in to the regions of Malaysia. Penang was chosen due to sentimental values. The time period used for this dataset was a 15 year period starting from 2010 to 2025 allowing for a sufficient amount of data to analyze and predict from.   
 
-saving the file as a base file                         
+- Saving a base file.                         
 
                               data.to_csv("Penang_15year_weather_info.csv")
                               base_data = pd.read.csv(r"C:\file directory\Penang_15year_weather_info.csv")
+                              
 ### Data Cleaning
-During the initial lookover of the dataset, no duplicates were found instead removal of several columns were needed
+During the initial lookover of the dataset, no duplicates were found, instead removal of several columns were done. 
 
-                            base_data.drop(columns = ["snow","wdir","wpgt","tsun","pres"],inplace = True )
+                              base_data.drop(columns = ["snow","wdir","wpgt","tsun","pres"],inplace = True )
 
-Columns Snow, wdir, wpgt and tsun was found to have no information recorded in their rows. While pres was not needed in this particular project   
+Columns snow, wdir, wpgt and tsun was found to have no information recorded in their rows. While pres was not needed in this particular project.  
 
-                            base_data.interpolate(limit = 3, inplace =True)
-year
+                              base_data.interpolate(limit = 3, inplace =True)
+                              
+To handle short data gaps while avoiding artificial smoothing, missing values were interpolated with a maximum gap of three consecutive days
 
-                            Monthly = base_data.resample('ME').mean()
-                            Yearly = base_data.resample('YE').mean()
+                              Monthly = base_data.resample('ME').mean()
+                              Yearly = base_data.resample('YE').mean()
+                              
+Daily Meteostat observations were aggregated to monthly and yearly means to reduce short-term variability and highlight long-term climatic trends. Yearly for overall changes, Monthly for probability
  
 ## Analytical Questions
 - Identify months where temperatures are highest.
