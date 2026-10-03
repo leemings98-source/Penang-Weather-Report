@@ -5,7 +5,7 @@
 
 *Records* : 5,840 raw rows
 
-*Scope* : Temperature ranges(minimun|maximum|average), precipitation and wind speed
+*Scope* : Temperature ranges(minimun|maximum|average), precipitation and wind speed.
 
 | Table of contents|
 |------------------|
@@ -86,15 +86,25 @@ Daily Meteostat observations were aggregated to monthly and yearly means to redu
   
 <img width="740" height="398" alt="{309E25B6-8846-48A8-BAC0-1EE870D520EB}" src="https://github.com/user-attachments/assets/05d522a0-6e80-4bfc-9f8c-b199a15c2a29" />
 
+Months between February to April during the 15 year period are the warmest compared to the other months. With March 2019 being the month with the highest average temperature across all other months.
+
 - Have temperatures been increasing as the years goes by?
 
 <img width="758" height="304" alt="{56C2721A-5816-44E2-A7D2-29FD44500342}" src="https://github.com/user-attachments/assets/9c42c65a-d31a-4ca7-bf02-e06db8a2cd8c" />
 
+Yes, temperature have been slowly increasing since 2010 in an oscillating fashion. Although the end of 2025's temperature ends in a dip, it's temperature of 28.4 degree Celsius is still a higher average than the start of 2010's 28.3 degree Celsius .
+
 - Which months have the most rainfall?
- 
-<img width="784" height="358" alt="{050F9FFB-8C1A-4309-9E04-9107DB4D92C0}" src="https://github.com/user-attachments/assets/624efeb9-5099-40bb-a5d8-dbb629cd8be5" />
+
+<img width="748" height="361" alt="{F6EA33C0-423A-46C3-AC4F-71C0385F0222}" src="https://github.com/user-attachments/assets/620bf1e2-0c42-47e3-b1b4-453d501d6cc4" />
+
+
 
 - Have rainfall increased/decrease over the years?
+
+<img width="784" height="358" alt="{050F9FFB-8C1A-4309-9E04-9107DB4D92C0}" src="https://github.com/user-attachments/assets/624efeb9-5099-40bb-a5d8-dbb629cd8be5" />
+
+Apparently not, it seems that the amount of precipitation has been at a constant 6mm not decreasing in volume. 2015's "0mm" precipitation happened due to insufficient data during that year therefore it is safe to disregard the year's data within our analysis.
 
 ## Key Findings
 
