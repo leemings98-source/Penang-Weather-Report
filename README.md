@@ -92,12 +92,13 @@ Months between February to April during the 15 year period are the warmest compa
 
 <img width="758" height="304" alt="{56C2721A-5816-44E2-A7D2-29FD44500342}" src="https://github.com/user-attachments/assets/9c42c65a-d31a-4ca7-bf02-e06db8a2cd8c" />
 
-Yes, temperature have been slowly increasing since 2010 in an oscillating fashion. Although the end of 2025's temperature ends in a dip, it's temperature of 28.4 degree Celsius is still a higher average than the start of 2010's 28.3 degree Celsius .
+Yes, temperature have been slowly increasing since 2010 in an oscillating fashion. Although the end of 2025's temperature ends in a dip, it's temperature of 28.4 degree Celsius is still a higher average than the start of 2010's 28.3 degree Celsius.
 
 - Which months have the most rainfall?
 
 <img width="748" height="361" alt="{F6EA33C0-423A-46C3-AC4F-71C0385F0222}" src="https://github.com/user-attachments/assets/620bf1e2-0c42-47e3-b1b4-453d501d6cc4" />
 
+-- actually go back into phyton and make a chart for this avg rainfall. I still have no idea how to read a box chart accurately, also, the numbers are way too congregated to actually know  -.-|||
 
 
 - Have rainfall increased/decrease over the years?
@@ -110,4 +111,39 @@ Apparently not, it seems that the amount of precipitation has been at a constant
 
 ## Creating and Testing out the Weather ForecastTesting out the Weather Forecast 
 
+                HOT_TEMP = 34       # °C
+                RAINY_PRCP = 10      # mm monthly avg (example)
+
+                def weather_probability_assistant(date_str, Monthly):
+                    date = pd.to_datetime(date_str)
+                    month = date.month
+
+                    # Filter historical data for the same month
+                    month_data = Monthly[Monthly.index.month == month]
+
+                    if month_data.empty:
+                        return "Not enough historical data for this month."
+  
+                    # Probabilities
+                    prob_hot = (month_data["tmax"] > 34).mean() * 100
+                    prob_rain = (month_data["prcp"] > 10).mean() * 100
+
+                    return {
+                        "month": date.strftime("%B"),
+                        "prob_hot": round(prob_hot, 1),
+                        "prob_rain": round(prob_rain, 1)
+                    }
+                def weather_recommendation(probs):
+                    if probs["prob_hot"] > 50 and probs["prob_rain"] < 15:
+                          return "Likely hot and dry — stay hydrated and avoid midday outdoor activity."
+    
+                    if probs["prob_rain"] > 60:
+                        return "High chance of rain — bring rain gear and plan indoor activities."
+    
+                    if probs["prob_hot"] < 30 and probs["prob_rain"] < 30:
+                        return "Generally pleasant conditions — good for outdoor activities."
+    
+                    return "Mixed conditions — check a short-term weather forecast closer to the date."
+
 ## Data Limitations
+- Blanks in data may occur 
