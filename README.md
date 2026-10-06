@@ -97,17 +97,19 @@ Yes, temperature have been slowly increasing since 2010 in an oscillating fashio
 - Which months have the most rainfall?
 
 <img width="784" height="358" alt="{050F9FFB-8C1A-4309-9E04-9107DB4D92C0}" src="https://github.com/user-attachments/assets/624efeb9-5099-40bb-a5d8-dbb629cd8be5" />
-<img width="913" height="384" alt="{A5637088-011A-4AFE-8E57-8C835FF15921}" src="https://github.com/user-attachments/assets/7f45f821-9037-4bb7-b82c-def917c0102f" />
+<img width="784" height="384" alt="{A5637088-011A-4AFE-8E57-8C835FF15921}" src="https://github.com/user-attachments/assets/7f45f821-9037-4bb7-b82c-def917c0102f" />
 
 
 
 - Have rainfall increased/decrease over the years?
 
-<img width="998" height="407" alt="{31BF10CD-09E9-4310-8CC3-526030C70552}" src="https://github.com/user-attachments/assets/e5e5e5a5-8248-407c-bdd4-f53308e93d86" />
+<img width="898" height="407" alt="{31BF10CD-09E9-4310-8CC3-526030C70552}" src="https://github.com/user-attachments/assets/e5e5e5a5-8248-407c-bdd4-f53308e93d86" />
 
 Apparently not, it seems that the amount of precipitation has been at a constant 6mm not decreasing in volume. 2015's "0mm" precipitation happened due to insufficient data during that year therefore it is safe to disregard the year's data within our analysis.
 
 ## Key Findings
+
+
 
 ## Creating and Testing out the Weather Forecast 
 
@@ -149,6 +151,7 @@ This is the base for the weather forecast. We started with setting up the baseli
 
 [screen-recording-ezgif.com-crop-video.webm](https://github.com/user-attachments/assets/56972166-9018-4f33-832b-99bc79fc7dca)
 
+Perhaps due to the ranges being so similar or rain probability is too low, all the results returns as "High chance of rain — bring rain gear and plan indoor activities."
 
 ## Data Limitations
 - As this is real world data, blanks in data collection is sometimes inevitable.
