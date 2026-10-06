@@ -92,24 +92,24 @@ Months between February to April during the 15 year period are the warmest compa
 
 <img width="758" height="304" alt="{56C2721A-5816-44E2-A7D2-29FD44500342}" src="https://github.com/user-attachments/assets/9c42c65a-d31a-4ca7-bf02-e06db8a2cd8c" />
 
-Yes, temperature have been slowly increasing since 2010 in an oscillating fashion. Although the end of 2025's temperature ends in a dip, it's temperature of 28.4 degree Celsius is still a higher average than the start of 2010's 28.3 degree Celsius.
+Yes, temperature have been slowly increasing since 2010 in an oscillating fashion. Although the end of 2025's temperature ends in a dip, it's temperature of 28.4°C is still a higher average than the start of 2010's 28.3°C.
 
 - Which months have the most rainfall?
 
-<img width="748" height="361" alt="{F6EA33C0-423A-46C3-AC4F-71C0385F0222}" src="https://github.com/user-attachments/assets/620bf1e2-0c42-47e3-b1b4-453d501d6cc4" />
+<img width="784" height="358" alt="{050F9FFB-8C1A-4309-9E04-9107DB4D92C0}" src="https://github.com/user-attachments/assets/624efeb9-5099-40bb-a5d8-dbb629cd8be5" />
+<img width="913" height="384" alt="{A5637088-011A-4AFE-8E57-8C835FF15921}" src="https://github.com/user-attachments/assets/7f45f821-9037-4bb7-b82c-def917c0102f" />
 
--- actually go back into phyton and make a chart for this avg rainfall. I still have no idea how to read a box chart accurately, also, the numbers are way too congregated to actually know  -.-|||
 
 
 - Have rainfall increased/decrease over the years?
 
-<img width="784" height="358" alt="{050F9FFB-8C1A-4309-9E04-9107DB4D92C0}" src="https://github.com/user-attachments/assets/624efeb9-5099-40bb-a5d8-dbb629cd8be5" />
+<img width="998" height="407" alt="{31BF10CD-09E9-4310-8CC3-526030C70552}" src="https://github.com/user-attachments/assets/e5e5e5a5-8248-407c-bdd4-f53308e93d86" />
 
 Apparently not, it seems that the amount of precipitation has been at a constant 6mm not decreasing in volume. 2015's "0mm" precipitation happened due to insufficient data during that year therefore it is safe to disregard the year's data within our analysis.
 
 ## Key Findings
 
-## Creating and Testing out the Weather ForecastTesting out the Weather Forecast 
+## Creating and Testing out the Weather Forecast 
 
                 HOT_TEMP = 34       # °C
                 RAINY_PRCP = 10      # mm monthly avg (example)
@@ -145,5 +145,11 @@ Apparently not, it seems that the amount of precipitation has been at a constant
     
                     return "Mixed conditions — check a short-term weather forecast closer to the date."
 
+This is the base for the weather forecast. We started with setting up the baseline on what would be considered as high temperature(34°C) as well as a rainy day(10mm) as template.
+
+[screen-recording-ezgif.com-crop-video.webm](https://github.com/user-attachments/assets/56972166-9018-4f33-832b-99bc79fc7dca)
+
+
 ## Data Limitations
-- Blanks in data may occur 
+- As this is real world data, blanks in data collection is sometimes inevitable.
+ 
