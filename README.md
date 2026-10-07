@@ -105,7 +105,7 @@ Yes, temperature have been slowly increasing since 2010 in an oscillating fashio
 
 <img width="898" height="407" alt="{31BF10CD-09E9-4310-8CC3-526030C70552}" src="https://github.com/user-attachments/assets/e5e5e5a5-8248-407c-bdd4-f53308e93d86" />
 
-Apparently not, it seems that the amount of precipitation has been at a constant 6mm not decreasing in volume. 2015's "0mm" precipitation happened due to insufficient data during that year therefore it is safe to disregard the year's data within our analysis.
+It seems that the amount of precipitation across the years has been hovering around the 6mm amount. 2015's 0mm precipitation occurred due to insufficient data collected during the year.
 
 ## Key Findings
 
@@ -151,8 +151,35 @@ This is the base for the weather forecast. We started with setting up the baseli
 
 [screen-recording-ezgif.com-crop-video.webm](https://github.com/user-attachments/assets/56972166-9018-4f33-832b-99bc79fc7dca)
 
-Perhaps due to the ranges being so similar or rain probability is too low, all the results returns as "High chance of rain — bring rain gear and plan indoor activities."
+Perhaps due to the ranges being so similar or rain probability is too low, all returned results tend to end up as "Generally pleasant conditions — good for outdoor activities." perhaps the set baselines were too high or values created for each criteria was unable to be reached.
+
+Testing out the conjectures, I changed the rainy precipitation down to 7mm instead of the original 10mm and added several more weather recommendation results to vary the results
+                     
+                def weather_recommendation(probs):
+        
+                    hot = probs["prob_hot"]
+                    rain = probs["prob_rain"]
+                    
+                    if hot > 50 and rain < 30:
+                        return "Likely hot and relatively dry — stay hydrated and avoid midday outdoor activity."
+                         
+                    elif rain > 60:
+                        return "High chance of rain — bring rain gear and plan indoor activities."
+
+                    elif rain > 40:
+                        return "Moderate chance of rain — bring an umbrella and keep outdoor plans flexible."
+
+                    elif hot > 40:
+                        return "Warm conditions are likely — stay hydrated and consider avoiding midday heat."
+
+                    elif hot < 30 and rain < 30:
+                        return "Generally pleasant conditions — good for outdoor activities."
+
+                    else:
+                        return "Mixed conditions — check a short-term weather forecast closer to the date."
 
 ## Data Limitations
 - As this is real world data, blanks in data collection is sometimes inevitable.
+
+  -- Data collected for prcp was sparse until it reached May of 2022. Many of the columns's data was null values.
  
