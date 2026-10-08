@@ -1,7 +1,7 @@
 # Penang Weather Report WIP
 
 ## Background Overview
-*Dataset* : Phyton's open source library - 'Meteostat'
+*Dataset* : Python's open source library - 'Meteostat'
 
 *Records* : 5,840 raw rows
 
@@ -13,7 +13,7 @@
 |2. [Data Preparation](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#data-preparations)|        
 |3. [Analytical Questions](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#analytical-questions)|  
 |4. [Key Findings](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#key-findings)|
-|5. [Creating and Testing out the Weather Forecast](https://github.com/leemings98-source/Penang-Weather-Report/edit/main/README.md#creating-and-testing-out-the-weather-forecasttesting-out-the-weather-forecast)|     
+|5. [Creating and Testing the Weather Probability Assistant ](https://github.com/leemings98-source/Penang-Weather-Report/edit/main/README.md#creating-and-testing-out-the-weather-forecasttesting-out-the-weather-forecast)|     
 |6. [Data Limitations](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#data-limitations)|     
 
 ## Project Overview
@@ -58,7 +58,7 @@ The data for this project is obtained from Phyton's own open source library - 'M
                               data = data.fetch()
                               data.head()
                               
-In this instance, the GPS points for Penang was necessary as Meteostat was unable to zero in to the regions of Malaysia. Penang was chosen due to sentimental values. The time period used for this dataset was a 15 year period starting from 2010 to 2025 allowing for a sufficient amount of data to analyze and predict from.   
+In this instance, the GPS points for Penang was necessary as Meteostat was unable to zero in to the regions of Malaysia. Penang was chosen due to sentimental values. The dataset covers daily observations from January 2010 through December 2025. Allowing for a sufficient amount of data to analyze and predict from.   
 
 - Saving a base file.                         
 
@@ -109,7 +109,7 @@ Amount of precipitation across the years has been hovering around the 6mm amount
 
 
 
-## Creating and Testing out the Weather Forecast 
+## Creating and Testing the Weather Probability Assistant 
 _Aims_ 
 - This project focuses on Penang as a case study to ensure data consistency and interpretability
 - This assistant is based on historical climatology rather than short-term forecasting
