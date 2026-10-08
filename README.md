@@ -97,21 +97,25 @@ Yes, temperature have been slowly increasing since 2010 in an oscillating fashio
 - Which months have the most rainfall?
 
 <img width="784" height="358" alt="{050F9FFB-8C1A-4309-9E04-9107DB4D92C0}" src="https://github.com/user-attachments/assets/624efeb9-5099-40bb-a5d8-dbb629cd8be5" />
-<img width="784" height="384" alt="{A5637088-011A-4AFE-8E57-8C835FF15921}" src="https://github.com/user-attachments/assets/7f45f821-9037-4bb7-b82c-def917c0102f" />
-
-
+<img width="784" height="384" alt="{A5637088-011A-4AFE-8E57-8C835FF15921}" src="https://github.com/user-attachments/assets/7f45f821-9037-4bb7-b82c-def917c0102f" /> 
 
 - Have rainfall increased/decrease over the years?
 
 <img width="898" height="407" alt="{31BF10CD-09E9-4310-8CC3-526030C70552}" src="https://github.com/user-attachments/assets/e5e5e5a5-8248-407c-bdd4-f53308e93d86" />
 
-It seems that the amount of precipitation across the years has been hovering around the 6mm amount. 2015's 0mm precipitation occurred due to insufficient data collected during the year.
+Amount of precipitation across the years has been hovering around the 6mm amount with around 2mm max difference in increases and decreases. 2015's 0mm precipitation occurred due to insufficient data collected during the year.
 
 ## Key Findings
 
 
 
 ## Creating and Testing out the Weather Forecast 
+_Aims_ 
+- This project focuses on Penang as a case study to ensure data consistency and interpretability
+- This assistant is based on historical climatology rather than short-term forecasting
+- The assistant estimates conditions based on historical patterns for the selected month rather than making a day-specific weather forecast
+
+### First Version
 
                 HOT_TEMP = 34       # °C
                 RAINY_PRCP = 10      # mm monthly avg (example)
@@ -149,11 +153,13 @@ It seems that the amount of precipitation across the years has been hovering aro
 
 This is the base for the weather forecast. We started with setting up the baseline on what would be considered as high temperature(34°C) as well as a rainy day(10mm) as template.
 
-[screen-recording-ezgif.com-crop-video.webm](https://github.com/user-attachments/assets/56972166-9018-4f33-832b-99bc79fc7dca)
+[Preview of Weather Forecast.webm](https://github.com/user-attachments/assets/903b1352-351e-4bef-87cb-ef29a54e0670)
 
-Perhaps due to the ranges being so similar or rain probability is too low, all returned results tend to end up as "Generally pleasant conditions — good for outdoor activities." perhaps the set baselines were too high or values created for each criteria was unable to be reached.
+Perhaps due to the ranges being so similar or rain probability's baseline being too low, all returned results tend to end up as "Generally pleasant conditions — good for outdoor activities." perhaps the set baselines were too high or values created for each criteria was unable to be reached.
 
-Testing out the conjectures, I changed the rainy precipitation down to 7mm instead of the original 10mm and added several more weather recommendation results to vary the results
+### Version 2.Testing and refining the code
+- Updated the rainy precipitation to 8mm instead of 10mm
+- Added several more weather recommendation results.
                      
                 def weather_recommendation(probs):
         
@@ -177,9 +183,13 @@ Testing out the conjectures, I changed the rainy precipitation down to 7mm inste
 
                     else:
                         return "Mixed conditions — check a short-term weather forecast closer to the date."
+                        
+[Preview of Weather Forecast(revised).webm](https://github.com/user-attachments/assets/68d0777f-7b8f-4935-91b2-fea83966723c)
+
+Lowering the baseline of rainy prcp to 8mm allowed for the results from October to output as 'Moderate Chance of Rain' instead of the initial 'Mixed Condition'. Though outputs from other months still seem to be regarded as 'Generally pleasant conditions'.
 
 ## Data Limitations
 - As this is real world data, blanks in data collection is sometimes inevitable.
 
-  -- Data collected for prcp was sparse until it reached May of 2022. Many of the columns's data was null values.
+  -- Data collected for prcp(Total Precipitation) was sparse until it reached May of 2022. Many of the row's data was recorded as null values.
  
