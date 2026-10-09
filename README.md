@@ -13,7 +13,7 @@
 |2. [Data Preparation](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#data-preparations)|        
 |3. [Analytical Questions](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#analytical-questions)|  
 |4. [Key Findings](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#key-findings)|
-|5. [Creating and Testing the Weather Probability Assistant ](https://github.com/leemings98-source/Penang-Weather-Report/edit/main/README.md#creating-and-testing-out-the-weather-forecasttesting-out-the-weather-forecast)|     
+|5. [Creating and Testing the Weather Probability Assistant ](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#creating-and-testing-the-weather-probability-assistant)|     
 |6. [Data Limitations](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#data-limitations)|     
 
 ## Project Overview
@@ -92,12 +92,14 @@ Months between February to April during the 15 year period are the warmest compa
 
 <img width="758" height="304" alt="{56C2721A-5816-44E2-A7D2-29FD44500342}" src="https://github.com/user-attachments/assets/9c42c65a-d31a-4ca7-bf02-e06db8a2cd8c" />
 
-Yes, temperature have been slowly increasing since 2010 in an oscillating fashion. Although the end of 2025's temperature ends in a dip, it's temperature of 28.4°C is still a higher average than the start of 2010's 28.3°C.
+Yes, temperature have been slowly increasing since 2010 in an oscillating fashion. Although the end of 2025's temperature ends in a decrease, it's temperature of 28.4°C is still a higher average than the start of 2010's 28.3°C.
 
 - Which months have the most rainfall?
 
 <img width="784" height="358" alt="{050F9FFB-8C1A-4309-9E04-9107DB4D92C0}" src="https://github.com/user-attachments/assets/624efeb9-5099-40bb-a5d8-dbb629cd8be5" />
 <img width="784" height="384" alt="{A5637088-011A-4AFE-8E57-8C835FF15921}" src="https://github.com/user-attachments/assets/7f45f821-9037-4bb7-b82c-def917c0102f" /> 
+
+October and November are the months with heavier rainfalls.
 
 - Have rainfall increased/decrease over the years?
 
@@ -106,8 +108,7 @@ Yes, temperature have been slowly increasing since 2010 in an oscillating fashio
 Amount of precipitation across the years has been hovering around the 6mm amount with around 2mm max difference in increases and decreases. 2015's 0mm precipitation occurred due to insufficient data collected during the year.
 
 ## Key Findings
-
-
+-
 
 ## Creating and Testing the Weather Probability Assistant 
 _Aims_ 
@@ -151,14 +152,18 @@ _Aims_
     
                     return "Mixed conditions — check a short-term weather forecast closer to the date."
 
-This is the base for the weather forecast. We started with setting up the baseline on what would be considered as high temperature(34°C) as well as a rainy day(10mm) as template.
+The foundation of the weather probability assistant, base thresholds was set as 34°C for high temperature and 10mm precipitation as a rainy day.
 
 [Preview of Weather Forecast.webm](https://github.com/user-attachments/assets/903b1352-351e-4bef-87cb-ef29a54e0670)
 
-Perhaps due to the ranges being so similar or rain probability's baseline being too low, all returned results tend to end up as "Generally pleasant conditions — good for outdoor activities." perhaps the set baselines were too high or values created for each criteria was unable to be reached.
+Outputs for the current version seems to predominantly fall under generally pleasant. 
+
+Conjecture: 
+- Base threshold was placed too high.
+- Variation of recommendations were too little, outputs values were unable to satisfy other outcome requirements. 
 
 ### Version 2.Testing and refining the code
-- Updated the rainy precipitation to 8mm instead of 10mm
+- Updated the rainy precipitation amount to 8mm instead of 10mm
 - Added several more weather recommendation results.
                      
                 def weather_recommendation(probs):
