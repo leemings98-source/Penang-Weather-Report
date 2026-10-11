@@ -10,7 +10,7 @@
 | Table of contents|
 |------------------|
 |1. [Project Overview](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#project-overview)|                
-|2. [Data Preparation](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#data-preparations)|        
+|2. [Data Preparation](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#data-preparation)|        
 |3. [Analytical Questions](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#analytical-questions)|  
 |4. [Key Findings](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#key-findings)|
 |5. [Creating and Testing the Weather Probability Assistant ](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#creating-and-testing-the-weather-probability-assistant)|     
