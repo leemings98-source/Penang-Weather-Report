@@ -5,7 +5,7 @@
 
 *Records* : 5,840 raw rows
 
-*Scope* : Temperature ranges(minimun|maximum|average), precipitation and wind speed.
+*Scope* : Temperature ranges(minimum|maximum|average), precipitation and wind speed.
 
 | Table of contents|
 |------------------|
@@ -23,11 +23,11 @@
 - Identify months where temperatures are highest.
 - Have temperatures been increasing as the years goes by?
 - Which months have the most rainfall?
-- Have rainfall increased/decrease over the years?
+- Have rainfall increased/decreased over the years?
 - Using all the data obtained, is it able to create a predictive weather report?
 
 ### Data Structure Overview
-The base dataset is composed of one table, 11 columns, and 5840 rows of data. The columns is as follows:
+The base dataset is composed of one table, 11 columns, and 5840 rows of data. The columns are as follows:
 
 | *Column* | *Meaning* | *Type* |
 |----------|-----------|--------|
@@ -43,10 +43,10 @@ The base dataset is composed of one table, 11 columns, and 5840 rows of data. Th
 |pres | Sea level air pressure | float |
 |tsun | Total sunshine duration | float |
 
-## Data Preperation
+## Data Preparation
 ### Data Collection
 
-The data for this project is obtained from Phyton's own open source library - 'Meteostat'. It retrieves historical observations and statistics from Meteostat Datasets, which aggregates information from various public sources primarily governmental agencies.
+The data for this project is obtained from Python's own open source library - 'Meteostat'. It retrieves historical observations and statistics from Meteostat Datasets, which aggregates information from various public sources primarily governmental agencies.
 
                               from meteostat import Point, Daily,Station
                               from datetime import datetime
@@ -60,10 +60,6 @@ The data for this project is obtained from Phyton's own open source library - 'M
                               
 In this instance, the GPS points for Penang was necessary as Meteostat was unable to zero in to the regions of Malaysia. Penang was chosen due to sentimental values. The dataset covers daily observations from January 2010 through December 2025. Allowing for a sufficient amount of data to analyze and predict from.   
 
-- Saving a base file.                         
-
-                              data.to_csv("Penang_15year_weather_info.csv")
-                              base_data = pd.read.csv(r"C:\file directory\Penang_15year_weather_info.csv")
                               
 ### Data Cleaning
 During the initial lookover of the dataset, no duplicates were found, instead removal of several columns were done. 
@@ -71,9 +67,6 @@ During the initial lookover of the dataset, no duplicates were found, instead re
                               base_data.drop(columns = ["snow","wdir","wpgt","tsun","pres"],inplace = True )
 
 Columns snow, wdir, wpgt and tsun was found to have no information recorded in their rows. While pres was not needed in this particular project.  
-
-                              base_data.interpolate(limit = 3, inplace =True)
-                              
 To handle short data gaps while avoiding artificial smoothing, missing values were interpolated with a maximum gap of three consecutive days
 
                               Monthly = base_data.resample('ME').mean()
@@ -86,13 +79,13 @@ Daily Meteostat observations were aggregated to monthly and yearly means to redu
   
 <img width="740" height="398" alt="{309E25B6-8846-48A8-BAC0-1EE870D520EB}" src="https://github.com/user-attachments/assets/05d522a0-6e80-4bfc-9f8c-b199a15c2a29" />
 
-Months between February to April during the 15 year period are the warmest compared to the other months. With March 2019 being the month with the highest average temperature across all other months.
+Months between February to April during the 2010 - 2025 period were the warmest compared to the other months. With March 2019 being the month with the highest average temperature across all other months.
 
 - Have temperatures been increasing as the years goes by?
 
 <img width="758" height="304" alt="{56C2721A-5816-44E2-A7D2-29FD44500342}" src="https://github.com/user-attachments/assets/9c42c65a-d31a-4ca7-bf02-e06db8a2cd8c" />
 
-Yes, temperature have been slowly increasing since 2010 in an oscillating fashion. Although the end of 2025's temperature ends in a decrease, it's temperature of 28.4°C is still a higher average than the start of 2010's 28.3°C.
+Yes, temperatures have been slowly increasing since 2010 in an oscillating fashion. Although the end of 2025's temperature ends in a decrease, it's temperature of 28.4°C is still a higher average than the start of 2010's 28.3°C.
 
 - Which months have the most rainfall?
 
@@ -101,20 +94,30 @@ Yes, temperature have been slowly increasing since 2010 in an oscillating fashio
 
 October and November are the months with heavier rainfalls.
 
-- Have rainfall increased/decrease over the years?
+- Have rainfall increased/decreased over the years?
 
 <img width="898" height="407" alt="{31BF10CD-09E9-4310-8CC3-526030C70552}" src="https://github.com/user-attachments/assets/e5e5e5a5-8248-407c-bdd4-f53308e93d86" />
 
 Amount of precipitation across the years has been hovering around the 6mm amount with around 2mm max difference in increases and decreases. 2015's 0mm precipitation occurred due to insufficient data collected during the year.
 
 ## Key Findings
--
+- Temperature:
+  February–April were generally the warmest months, with March 2019 recording the highest monthly average temperature.
+
+- Long-term temperature:
+  Average temperatures showed a gradual upward trend from 2010 to 2025, despite year-to-year fluctuations.
+
+- Rainfall:
+  Rainfall activity was generally higher around September–November.
+
+- Long-term rainfall:
+  Annual precipitation remained relatively stable overall, with considerable limitations in years with incomplete observations.
 
 ## Creating and Testing the Weather Probability Assistant 
 _Aims_ 
-- This project focuses on Penang as a case study to ensure data consistency and interpretability
-- This assistant is based on historical climatology rather than short-term forecasting
-- The assistant estimates conditions based on historical patterns for the selected month rather than making a day-specific weather forecast
+- This project focuses on Penang as a case study to ensure data consistency and interpretability.
+- This assistant is based on historical climatology rather than short-term forecasting.
+- The assistant estimates conditions based on historical patterns for the selected month rather than making a day-specific weather forecast.
 
 ### First Version
 
@@ -154,7 +157,7 @@ _Aims_
 
 The foundation of the weather probability assistant, base thresholds was set as 34°C for high temperature and 10mm precipitation as a rainy day.
 
-[Preview of Weather Forecast.webm](https://github.com/user-attachments/assets/903b1352-351e-4bef-87cb-ef29a54e0670)
+[Preview of Weather Probability Forecast.webm](https://github.com/user-attachments/assets/903b1352-351e-4bef-87cb-ef29a54e0670)
 
 Outputs for the current version seems to predominantly fall under generally pleasant. 
 
@@ -166,10 +169,6 @@ Conjecture:
 - Updated the rainy precipitation amount to 8mm instead of 10mm
 - Added several more weather recommendation results.
                      
-                def weather_recommendation(probs):
-        
-                    hot = probs["prob_hot"]
-                    rain = probs["prob_rain"]
                     
                     if hot > 50 and rain < 30:
                         return "Likely hot and relatively dry — stay hydrated and avoid midday outdoor activity."
