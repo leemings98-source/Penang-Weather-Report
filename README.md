@@ -7,6 +7,10 @@
 
 *Scope* : Temperature ranges(minimum|maximum|average), precipitation and wind speed.
 
+*Raw dataset* : 11 columns, including variables that weren't used.
+
+*Final analytical dataset* : 6 columns(time, tavg , tmin, tmax, prcp and wspd) 
+
 | Table of contents|
 |------------------|
 |1. [Project Overview](https://github.com/leemings98-source/Penang-Weather-Report/blob/main/README.md#project-overview)|                
@@ -67,7 +71,8 @@ During the initial lookover of the dataset, no duplicates were found, instead re
                               base_data.drop(columns = ["snow","wdir","wpgt","tsun","pres"],inplace = True )
 
 Columns snow, wdir, wpgt and tsun was found to have no information recorded in their rows. While pres was not needed in this particular project.  
-To handle short data gaps while avoiding artificial smoothing, missing values were interpolated with a maximum gap of three consecutive days
+
+All data was subjected to 'three day' span interpolation to handle short data gaps while avoiding artificial smoothing caused by interpolating in a longer range. tavg, tmin and tmax has little gaps in their data with a min of 1 day gap to a max of 3 days, while prcp tends to have a bigger data gap in their data(ing)
 
                               Monthly = base_data.resample('ME').mean()
                               Yearly = base_data.resample('YE').mean()
