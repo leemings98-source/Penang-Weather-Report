@@ -72,7 +72,18 @@ During the initial lookover of the dataset, no duplicates were found, instead re
 
 Columns snow, wdir, wpgt and tsun was found to have no information recorded in their rows. While pres was not needed in this particular project.  
 
-All data was subjected to 'three day' span interpolation to handle short data gaps while avoiding artificial smoothing caused by interpolating in a longer range. tavg, tmin and tmax has little gaps in their data with a min of 1 day gap to a max of 3 days, while prcp tends to have a bigger data gap in their data(ing)
+Handling Missing Data
+
+Missing values were present across several weather variables. Most gaps in the dataset consisted of approximately one to three consecutive observations, so interpolation was applied during the initial data-cleaning process.
+
+Precipitation data had more substantial gaps, including extended periods between 2013 and 2021, with some scattered observations within these periods. These gaps present a limitation because precipitation can vary considerably over short periods, making long-range interpolation unreliable.
+
+Consequently, precipitation-related findings should be interpreted with caution, particularly when comparing monthly and annual patterns across years with incomplete observations. The analysis reflects the available data and may not fully represent actual rainfall patterns during periods with limited coverage.
+
+- *Amount of Null Values in each column after interpolate* 
+<img width="282" height="148" alt="{9124D094-6EB7-4AF5-B3D1-69127F8F934C}" src="https://github.com/user-attachments/assets/998c3a99-59ec-4dc9-a5ac-abe90281eaa6" />
+
+
 
                               Monthly = base_data.resample('ME').mean()
                               Yearly = base_data.resample('YE').mean()
@@ -166,7 +177,7 @@ The foundation of the weather probability assistant, base thresholds was set as 
 
 Outputs for the current version seems to predominantly fall under generally pleasant. 
 
-Conjecture: 
+Observations and Improvements: 
 - Base threshold was placed too high.
 - Variation of recommendations were too little, outputs values were unable to satisfy other outcome requirements. 
 
